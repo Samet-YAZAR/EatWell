@@ -14,6 +14,7 @@ namespace EatWell.Controllers
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            //this line is being put here to trigger the pipeline.
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
