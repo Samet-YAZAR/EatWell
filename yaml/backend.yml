@@ -1,6 +1,5 @@
 parameters:
 - name: artifact
-  type:
 
 steps:
 - bash: |
