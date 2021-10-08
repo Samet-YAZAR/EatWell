@@ -5,7 +5,7 @@ steps:
     echo "================BACKEND=================="
     echo '##vso[task.setVariable variable=stageName]Backend'
   displayName: ===BackEND=== 
-  condition:  and(succeeded()) 
+  condition: succeeded()
 
 # - task: DotNetCoreCLI@2
 #   displayName: Restore
