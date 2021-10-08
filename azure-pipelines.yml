@@ -14,4 +14,4 @@ jobs:
   workspace:
     clean: all
   steps:
-  - template: backend.yml@EATWELL
+  - template: yaml/backend.yml
