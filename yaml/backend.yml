@@ -1,5 +1,4 @@
-parameters:
-- name: artifact
+
 
 steps:
 - bash: |
