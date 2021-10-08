@@ -13,5 +13,7 @@ jobs:
   displayName: Backend_Build 
   workspace:
     clean: all
+  variables:
+    - group: Eat_Well_Variable_Group
   steps:
   - template: yaml/backend.yml
