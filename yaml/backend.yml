@@ -9,7 +9,7 @@ steps:
     echo 'QA'= $(QA)
     echo 'Mobile'= $(MOBILE)
   displayName: ===Echo Variables from Variable GROUP=== 
-  condition: and(succeeded(), eq(variables.stageName, 'Backend'))
+  condition: succeeded()
 
 # - task: DotNetCoreCLI@2
 #   displayName: Restore
