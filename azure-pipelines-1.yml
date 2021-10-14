@@ -9,12 +9,27 @@ trigger:
 pool:
   vmImage: 'windows-latest'
 
+
 variables:
   solution: '**/*.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
+- task: AzureKeyVault@2
+  inputs:
+    azureSubscription: 'Azure for Students(a4df36f1-8de3-4731-9926-efc9b231a6f3)'
+    KeyVaultName: 'EAT-WELL'
+    SecretsFilter: '*'
+    RunAsPreJob: false
+- task: CmdLine@2
+  inputs:
+    script: 'echo $(EatWellDemoSecret) > secret.txt'
+
+- task: CopyFiles@2
+  inputs:
+    Contents: secret.txt
+    targetFolder: '$(Build.ArtifactStagingDirectory)'    
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
