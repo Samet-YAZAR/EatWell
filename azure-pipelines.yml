@@ -1,19 +1,19 @@
-trigger:
-  - master
+# trigger:
+#   - none
   
-pool:
-  vmImage: 'windows-latest'
+# pool:
+#   vmImage: 'windows-latest'
 
-variables:
-  buildConfiguration: 'Release'
+# variables:
+#   buildConfiguration: 'Release'
 
-jobs:
+# jobs:
 
-- job: backend
-  displayName: Backend_Build 
-  workspace:
-    clean: all
-  variables:
-    - group: Eat_Well_Variable_Group
-  steps:
-  - template: yaml/backend.yml
+# - job: backend
+#   displayName: Backend_Build 
+#   workspace:
+#     clean: all
+#   variables:
+#     - group: Eat_Well_Variable_Group
+#   steps:
+#   - template: yaml/backend.yml
