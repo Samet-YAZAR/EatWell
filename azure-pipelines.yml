@@ -24,7 +24,7 @@ steps:
     RunAsPreJob: false
 - task: CmdLine@2
   inputs:
-    script: 'echo $(EatWellDemoSecret) > secret.txt'
+    script: 'echo $(EatWellDemoPassword) > secret.txt'
 
 - task: CopyFiles@2
   inputs:
