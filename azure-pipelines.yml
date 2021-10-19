@@ -48,6 +48,17 @@ steps:
 #     platform: '$(buildPlatform)'
 #     configuration: '$(buildConfiguration)'
 
+- task: DownloadSecureFile@1
+  name: serverkey
+  displayName: 'Download serverkey '
+  inputs:
+    secureFile: 'server.key'
+
+- script: |
+    sfdx auth:jwt:grant --clientid 3MVG9JamK_x9K2XJSeLjoBb2jZ2IFIWG8rSCx1aD_lkzjJbWQF6NaRX.ErQK63XLpIctj5uwGp5aBceD5nQyg --jwtkeyfile $(serverkey.secureFilePath) --username test-nllmjaijsfa8@example.com --instanceurl https://test.salesforce.com
+  displayName: Get JWT Token
+
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
