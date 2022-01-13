@@ -36,33 +36,11 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-# - task: VSBuild@1
-#   inputs:
-#     solution: '$(solution)'
-#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-
-# - task: VSTest@2
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-
-- script: |
-    apt-get update && apt-get install -y curl && curl -sL https://deb.nodesource.com/setup_12.x | bash - && apt-get install -y nodejs && curl -L https://www.npmjs.com/install.sh | sh
-    npm install sfdx-cli --global
-  displayName: install sfdx
-
 - task: DownloadSecureFile@1
   name: serverkey
   displayName: 'Download serverkey '
   inputs:
     secureFile: 'server.key'
-
-- script: |
-    sfdx auth:jwt:grant --clientid 3MVG9JamK_x9K2XJSeLjoBb2jZ2IFIWG8rSCx1aD_lkzjJbWQF6NaRX.ErQK63XLpIctj5uwGp5aBceD5nQyg --jwtkeyfile $(serverkey.secureFilePath) --username test-nllmjaijsfa8@example.com --instanceurl https://test.salesforce.com
-  displayName: Get JWT Token
-
 
 - task: PublishBuildArtifacts@1
   inputs:
